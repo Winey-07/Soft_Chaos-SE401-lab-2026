@@ -1,8 +1,8 @@
 package edu.itc.shop_rest.api.dto;
 
-public record StockChange(int delta) {
-    
-}
-// Here, delta means the amount of change.
-//  -5 means remove five items.
-// +10 means add ten items.
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+
+public record StockChange(
+        @Min(-1000) @Max(1000) int delta
+) {}
